@@ -16,6 +16,7 @@ def server(log_buffer=sys.stderr):
     try:
         while True:
             print('waiting for a connection', file=log_buffer)
+            # Added the select.select statement.  Not sure how to test...
             s = select.select([sock], [], [])
             if s:
                 conn, addr = sock.accept()
