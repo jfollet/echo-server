@@ -3,6 +3,9 @@ import sys
 
 
 def server(log_buffer=sys.stderr):
+    """"server opens a server socket, waits for a connection from a client, 
+    receives the message 16 bytes at a time and returns."""
+    
     address = ('127.0.0.1', 10000)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

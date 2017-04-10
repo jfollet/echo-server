@@ -3,6 +3,8 @@ import sys
 
 
 def client(msg, log_buffer=sys.stderr):
+    """client opens a socket, sends the input msg and receives the same message back 16 bytes at a chunk"""
+
     server_address = ('localhost', 10000)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_IP)
     print('connecting to {0} port {1}'.format(*server_address), file=log_buffer)
