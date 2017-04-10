@@ -19,6 +19,9 @@ def client(msg, log_buffer=sys.stderr):
             received_message = received_message + chunk.decode('utf8')
             if len(chunk) < 16:
                 break
+            # for breaking the loop if the byte count is exactly 16.  Probably a better way...
+            if msg == received_message:
+                break
     finally:
         print('closing socket', file=log_buffer)
         sock.close()
